@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { HiLockClosed } from 'react-icons/hi';
 import { FaSpinner } from 'react-icons/fa';
+import { FiUser, FiLock } from 'react-icons/fi';
 
 interface Props {
 
@@ -40,23 +41,21 @@ const LoginPage: React.FC<Props> = () => {
     }
 
     return (
-        <div className="min-h-screen flex items-center justify-center flex-1 bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-            <div className="max-w-md w-full space-y-8">
-                <div>
-                    <img className="mx-auto h-12 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg" alt="Workflow" />
-                    <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-                        Sign in to your account
+        <div className="h-screen flex-1 text-accent tracking-wide ">
+            <div className="font-primary-300 box-content py-3 px-11 w-3/5 m-auto">
+                <div className='mb-13'>
+                    <h2 className="text-4.5xl mb-2 ">
+                        Log In to <span className="font-semibold text-primary-300">CORK</span>
                     </h2>
-                    <p className="mt-2 text-center text-sm text-gray-600">
-                        Or
-                        <Link to='/signup' className="font-medium text-indigo-600 hover:text-indigo-500">
-                            start your 14-day free trial
+                    <p className="text-sm font-bold">
+                        New Here?
+                        <Link to='/signup' className="ml-1 mb-1 border-b border-primary-300 text-primary-300">
+                            Create an account
                         </Link>
                     </p>
                 </div>
 
-
-                <form className="mt-8 space-y-6" onSubmit={(event) => {
+                <form className="" onSubmit={(event) => {
                     event.preventDefault();
                     if (emailError || passwordError) {
                         console.log(emailError, passwordError);
@@ -71,49 +70,63 @@ const LoginPage: React.FC<Props> = () => {
                         }, 5000)
 
                 }}>
-                    <div className="rounded-md shadow-sm -space-y-px">
-                        <div>
+                    <div className="pb-2">
+                        <div className='h-12 box-content relative flex border-b border-gray-200 pt-2.5 mb-6'>
                             <label htmlFor="email-address" className="sr-only">Email address</label>
-                            <input id="email-address" name="email" type="email" autoComplete="email" value={data.email} onBlur={(event) => handleBlur(event)} onChange={(event) => handleChange(event)} required className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Email address" />
+                            <FiUser className="w-6 h-6 top-4 absolute fill-primary text-primary-300" />
+                            <input id="email-address" name="email" type="email" autoComplete="email" value={data.email} onBlur={(event) => handleBlur(event)} onChange={(event) => handleChange(event)} required className="appearance-none pl-9 pb-2.5 w-full outline-none" placeholder="Email address" />
                         </div>
                         {touchedState.email && emailError}
-                        <div>
+                        <div className='h-12 box-content relative flex border-b border-gray-200 pt-2.5 mb-6'>
                             <label htmlFor="password" className="sr-only">Password</label>
-                            <input id="password" name="password" type="password" autoComplete="current-password" value={data.password} onBlur={(event) => handleBlur(event)} onChange={(event) => handleChange(event)} required className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Password" />
+                            <FiLock className="w-6 h-6 top-4 absolute fill-primary text-primary-300" />
+                            <input id="password" name="password" type="password" autoComplete="current-password" value={data.password} onBlur={(event) => handleBlur(event)} onChange={(event) => handleChange(event)} required className="appearance-none pl-9 pb-2.5 w-full outline-none" placeholder="Password" />
                         </div>
                         {touchedState.password && passwordError}
                     </div>
 
                     <div className="flex items-center justify-between">
-                        <div className="flex items-center">
-                            <input id="remember-me" name="remember-me" type="checkbox" className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded" />
-                            <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-900">
-                                Remember me
+
+                        <div className="">
+                            <label htmlFor="show-password" className="text-sm text-semibold flex cursor-pointer">
+                                Show Password
+                                <div className="ml-2 relative">
+                                    <input type="checkbox" id="toggleB" className="sr-only" />
+                                    <div className="block bg-primary-100 w-8.5 h-4.5 rounded-full"></div>
+                                    <div className="dot absolute left-0.5 top-0.5 bg-primary-300 w-3.5 h-3.5 rounded-full transition"></div>
+                                </div>
+                            </label>
+
+                        </div>
+                        <button className='py-2 px-5 rounded text-sm bg-primary-300 text-white align-middle'>
+                            Log In
+                        </button>
+                    </div>
+                        <div className="flex items-center justify-center pt-1 mt-14 mr-4 mb-2">
+                            <input id="remember-me" name="remember-me" type="checkbox" className="h-4 w-4 text-gray-300 border border-gray-200 rounded" />
+                            <label htmlFor="remember-me" className="ml-4 text-sm text-gray-400">
+                                Keep me logged in
                             </label>
                         </div>
-
-                        <div className="text-sm">
-                            <Link to='/forgot-password' className="font-medium text-indigo-600 hover:text-indigo-500">
-                                Forgot your password?
-                            </Link>
+                        <div className='flex justify-center pt-4'>
+                        <Link to="/forgot-password" className='text-15 font-semibold tracking-0.125 text-primary-300'>Forgot Password?</Link>
                         </div>
-                    </div>
-
-                    <div>
+                    <div className='mt-5'>
                         <button
-                            disabled={(!touchedState.email || !touchedState.password || emailError!=='' || passwordError!=='')?true:false
-                        }
+                            disabled={(!touchedState.email || !touchedState.password || emailError !== '' || passwordError !== '') ? true : false
+                            }
                             type="submit" className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                        <span className="absolute left-0 inset-y-0 flex items-center pl-3">
+                            <span className="absolute left-0 inset-y-0 flex items-center pl-3">
 
-                            <HiLockClosed></HiLockClosed>
-                        </span>
-                        Sign in
-                            </button>
-                    {submitting && <FaSpinner className='animate-spin mt-5' />}
-                        </div>
+                                <HiLockClosed></HiLockClosed>
+                            </span>
+                            Sign in
+                        </button>
+                        {submitting && <FaSpinner className='animate-spin mt-5' />}
+                    </div>
                 </form>
-        </div>
+            </div>
+            <div className='h-60'></div>
         </div >
     );
 }
