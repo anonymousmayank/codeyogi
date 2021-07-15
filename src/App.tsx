@@ -10,7 +10,7 @@ function App() {
       <Switch>
         <Redirect from='/' to='/login' exact />
         <Route path={['/login', '/signup']} exact><AuthPage></AuthPage></Route>
-        <Route path={['/dashboard', '/recordings']} exact><AppContainer></AppContainer></Route>
+        <Route path={['/dashboard', '/batch/:batchNumber/lecture/:lectureNumber']} exact><AppContainer></AppContainer></Route>
         <Route><NotFoundPage></NotFoundPage></Route>
       </Switch>
     </BrowserRouter>

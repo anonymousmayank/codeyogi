@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import SideNavbar from '../components/sideNavbar';
 import Dashboard from './Dashboard.page';
-import Recordings from './Recordings.page';
+import Recordings from './Lectures.page';
 
 interface Props{}
 
@@ -12,7 +12,7 @@ const AppContainer:React.FC<Props> = ()=>{
             <SideNavbar></SideNavbar>
             <Switch>
                 <Route path='/dashboard'><Dashboard></Dashboard></Route>
-                <Route path='/recordings'><Recordings></Recordings></Route>
+                <Route path='/batch/:batchNumber/lecture/:lectureNumber'><Recordings></Recordings></Route>
             </Switch>
         </div>
     );
