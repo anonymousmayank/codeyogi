@@ -32,13 +32,30 @@ module.exports = {
         
       },
       margin: {
-        '13':'3.125rem'
-      }
+        '13':'3.125rem',
+        '90' :'5.625rem'
+      },
+      translate: {
+        '4.5':'1.0625rem'
+      },
+      boxShadow: {
+        'primary-shadow': '0px 10px 20px -10px #4361ee',
+      },
+      backgroundImage: theme => ({
+        'authHero': "url('./assets/authHero.webp')",
+       }),
+       backgroundSize: {
+         '75%':'75%'
+       }
 
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      backgroundColor: ['checked'],
+      borderColor: ['checked'],
+      borderWidth: ['hover','checked'],
+    },
   },
   plugins: [],
 }
