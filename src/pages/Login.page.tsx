@@ -32,7 +32,8 @@ const LoginPage: React.FC<Props> = () => {
         }
     });
 
-    const history = useHistory();const [showPassword, setShowPassword] = useState(false);
+    const history = useHistory();
+    const [showPassword, setShowPassword] = useState(false);
     const [remember, setRemember]=useState(false);
 
     return (
@@ -54,7 +55,7 @@ const LoginPage: React.FC<Props> = () => {
                 <form className="" onSubmit={myForm.handleSubmit}>
                     <div className="pb-2">
                         <Input touched={myForm.touched.email} error={myForm.errors.email} {...myForm.getFieldProps('email')} id="email-address" type="email" autoComplete="current-email" required />
-                        <Input touched={myForm.touched.password} error={myForm.errors.password} {...myForm.getFieldProps('password')} id="password" type="password" autoComplete="current-password" required />
+                        <Input touched={myForm.touched.password} error={myForm.errors.password} {...myForm.getFieldProps('password')} id="password" type={(showPassword?"text":"password")} autoComplete="current-password" required />
                     </div>
 
                     <div className="flex items-center justify-between">
