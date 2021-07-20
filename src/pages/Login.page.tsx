@@ -14,8 +14,8 @@ interface Props {
 
 const LoginPage: React.FC<Props> = () => {
     const myFormValidator = yup.object().shape({
-        email : yup.string().required().email(),
-        password : yup.string().required().min(8,({min})=>`Atleast ${min} charecters`)
+        email : yup.string().required('*Email is a required feild').email('*Email must be a valid E-mail'),
+        password : yup.string().required('*Password is a required feild').min(8,({min})=>`*Atleast ${min} charecters`)
     });
     const myForm= useFormik({
         initialValues: {
@@ -54,8 +54,8 @@ const LoginPage: React.FC<Props> = () => {
 
                 <form className="" onSubmit={myForm.handleSubmit}>
                     <div className="pb-2">
-                        <Input touched={myForm.touched.email} error={myForm.errors.email} {...myForm.getFieldProps('email')} id="email-address" type="email" autoComplete="current-email" required />
-                        <Input touched={myForm.touched.password} error={myForm.errors.password} {...myForm.getFieldProps('password')} id="password" type={(showPassword?"text":"password")} autoComplete="current-password" required />
+                        <Input touched={myForm.touched.email} error={myForm.errors.email} {...myForm.getFieldProps('email')} id="email-address" type="email" autoComplete="current-email" placeholder="Username" required />
+                        <Input touched={myForm.touched.password} error={myForm.errors.password} {...myForm.getFieldProps('password')} id="password" type={(showPassword?"text":"password")} autoComplete="current-password" placeholder="Password" required />
                     </div>
 
                     <div className="flex items-center justify-between">
