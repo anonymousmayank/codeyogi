@@ -40,6 +40,7 @@ module.exports = {
       },
       boxShadow: {
         'primary-shadow': '0px 10px 20px -10px #4361ee',
+        'secondry-shadow': '0px 10px 20px -10px #757575',
       },
       backgroundImage: theme => ({
         'authHero': "url('./assets/authHero.webp')",

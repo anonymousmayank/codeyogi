@@ -7,8 +7,8 @@ import { FiUser, FiLock } from 'react-icons/fi';
 import { BiCheck } from 'react-icons/bi';
 import * as yup from 'yup';
 import { useFormik } from 'formik';
-import Input from '../components/Input';
-import Button from '../components/Button';
+import Input from '../components/Input/Input';
+import Button from '../components/Button/Button';
 interface Props {
 
 }
@@ -80,7 +80,7 @@ const LoginPage: React.FC<Props> = () => {
                             </label>
 
 
-                            <Button disabled={!myForm.isValid} type="submit">Log in</Button>
+                            <Button theme='primary' disabled={!myForm.isValid} type="submit">Log in</Button>
                         </div>
                         <div className='mt-5'>
                             {myForm.isSubmitting && <FaSpinner className='animate-spin mt-5' />}

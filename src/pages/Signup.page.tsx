@@ -3,8 +3,8 @@ import { Link, useHistory } from 'react-router-dom';
 import { Switch, Transition } from '@headlessui/react';
 import * as yup from 'yup';
 import {useFormik} from 'formik';
-import Input from '../components/Input';
-import Button from '../components/Button';
+import Input from '../components/Input/Input';
+import Button from '../components/Button/Button';
 import { FaCheck, FaSpinner } from 'react-icons/fa';
 interface Props{}
 
@@ -84,7 +84,7 @@ const SignupPage:React.FC<Props> = ()=>{
                             </label>
 
 
-                            <Button disabled={!myForm.isValid} type="submit">Get Started!</Button>
+                            <Button theme='secondry' disabled={!myForm.isValid} type="submit">Get Started!</Button>
                         </div>
                         <div className='mt-5'>
                             {myForm.isSubmitting && <FaSpinner className='animate-spin mt-5' />}
