@@ -55,8 +55,8 @@ const LoginPage: React.FC<Props> = () => {
 
                     <form className="" onSubmit={myForm.handleSubmit}>
                         <div className="pb-2">
-                            <Input touched={myForm.touched.email} error={myForm.errors.email} {...myForm.getFieldProps('email')} id="email-address" type="email" autoComplete="current-email" placeholder="Username" required />
-                            <Input touched={myForm.touched.password} error={myForm.errors.password} {...myForm.getFieldProps('password')} id="password" type={(showPassword ? "text" : "password")} autoComplete="current-password" placeholder="Password" required />
+                            <Input Icon={FiUser} touched={myForm.touched.email} error={myForm.errors.email} {...myForm.getFieldProps('email')} id="email-address" type="email" autoComplete="current-email" placeholder="Username" required />
+                            <Input Icon={FiLock} touched={myForm.touched.password} error={myForm.errors.password} {...myForm.getFieldProps('password')} id="password" type={(showPassword ? "text" : "password")} autoComplete="current-password" placeholder="Password" required />
                         </div>
 
                         <div className="flex items-center justify-between">

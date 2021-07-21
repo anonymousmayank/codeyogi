@@ -1,6 +1,7 @@
 import React, { ButtonHTMLAttributes } from 'react';
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
     theme?:'primary' | 'secondry';
+    type:'submit' | 'reset' | 'button';
 }
 
 const Button: React.FC<Props> = ({theme, className, children, ...rest }) => {

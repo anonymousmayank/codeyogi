@@ -6,15 +6,19 @@ import {useFormik} from 'formik';
 import Input from '../components/Input/Input';
 import Button from '../components/Button/Button';
 import { FaCheck, FaSpinner } from 'react-icons/fa';
+import { FiLock, FiUser } from 'react-icons/fi';
+import {HiOutlineMail} from 'react-icons/hi';
 interface Props{}
 
 const SignupPage:React.FC<Props> = ()=>{
     const myFormValidator = yup.object().shape({
+        username: yup.string().required().min(2), 
         email: yup.string().required('*Email is a required feild').email('*Email must be a valid E-mail'),
         password: yup.string().required('*Password is a required feild').min(8, ({ min }) => `*Atleast ${min} charecters`)
     });
     const myForm = useFormik({
         initialValues: {
+            username : "",
             email: "",
             password: ""
         },
@@ -49,8 +53,9 @@ const SignupPage:React.FC<Props> = ()=>{
 
                     <form className="" onSubmit={myForm.handleSubmit}>
                         <div className="pb-2">
-                            <Input touched={myForm.touched.email} error={myForm.errors.email} {...myForm.getFieldProps('email')} id="email-address" type="email" autoComplete="current-email" placeholder="Username" required />
-                            <Input touched={myForm.touched.password} error={myForm.errors.password} {...myForm.getFieldProps('password')} id="password" type={(showPassword ? "text" : "password")} autoComplete="current-password" placeholder="Password" required />
+                            <Input Icon={FiUser} touched={myForm.touched.username} error={myForm.errors.username} {...myForm.getFieldProps('username')} id="username" type="text" autoComplete="username" placeholder="Username" required />
+                            <Input Icon={HiOutlineMail} touched={myForm.touched.email} error={myForm.errors.email} {...myForm.getFieldProps('email')} id="email-address" type="email" autoComplete="current-email" placeholder="E-mail" required />
+                            <Input Icon={FiLock} touched={myForm.touched.password} error={myForm.errors.password} {...myForm.getFieldProps('password')} id="password" type={(showPassword ? "text" : "password")} autoComplete="current-password" placeholder="Password" required />
                         </div>
                         <div className="flex mb-5">
                             <div className='relative'>

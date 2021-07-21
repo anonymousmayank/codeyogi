@@ -11,10 +11,14 @@ module.exports = {
         accent: '#3b3f5c'
       },
       height:{
-        '4.5':'1.125rem'
+        '4.5':'1.125rem',
+        '21':'5.125rem',
+        '28%':'28%'
       },
       width:{
-        '8.5':'2.1875rem'
+        '8.5':'2.1875rem',
+        '21':'5.125rem',
+        '28%':'28%'
       },
       fontFamily:{
         'primary':['Nunito', 'sans-serif']
@@ -27,6 +31,12 @@ module.exports = {
         'wide':'0.03125em',
         '0.125':'0.125rem'
       },
+      borderRadius: {
+        5:'0.3125rem',
+      },
+      borderWidth: {
+        3:'0.1875rem'
+      },
       fill:{
         primary: 'rgba(27, 84, 228, 0.24)',
         
@@ -34,6 +44,10 @@ module.exports = {
       margin: {
         '13':'3.125rem',
         '90' :'5.625rem'
+      },
+      inset: {
+       '1%': '1%',
+       '5%': '5%',
       },
       translate: {
         '4.5':'1.0625rem'
@@ -53,6 +67,7 @@ module.exports = {
   },
   variants: {
     extend: {
+      translate: ['active', 'group-hover'],
       backgroundColor: ['checked'],
       borderColor: ['checked'],
       borderWidth: ['hover','checked'],
